@@ -1,0 +1,6 @@
+{
+	'o19': {
+		'sample': ['Parched Prospect', 'Sable Square', ],
+		'not_existing': [1, ],
+	},
+}

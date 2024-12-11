@@ -1,0 +1,5 @@
+{
+	'o19': {
+		'sample': ['animation_1', 'animation_2', ],
+	},
+}

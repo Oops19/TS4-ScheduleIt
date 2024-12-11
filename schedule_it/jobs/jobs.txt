@@ -1,0 +1,67 @@
+
+
+"""
+o19.mypp2 x  # pose_name = "Kritical:PosePack_202008080858060484_set_1"
+o19.pp.rot sim "(0,1,0,0)"
+o19.pp.move sim "(0, 0, 1.4)"
+
+
+o19.mypp2 x - play the pose
+
+obj, obj_location, obj_position, obj_orientation, obj_zone_id, obj_level, obj_surface_id = oc.obj_data
+obj_orientation = MyLocationCheats().q_mul(obj_orientation, Quaternion(x, y, z, w))
+if xxx_type[0] == 's':
+	# sim
+	output(f"{obj_orientation} * {Quaternion(x, y, z, w)}")
+	obj_orientation = MyLocationCheats().q_mul(obj_orientation, Quaternion(x, y, z, w))
+else:
+	obj_orientation = Quaternion(x, y, z, w)  # replace obj_orientation
+
+_transform = Transform(obj_position, obj_orientation)
+_routing_surface = SurfaceIdentifier(obj_zone_id, obj_level, obj_surface_id)
+location = Location(_transform, _routing_surface)
+
+if xxx_type[0] == 's':
+	sim = sc.sim
+	sim.location = location
+	# sim.reset(ResetReason.RESET_EXPECTED, None, 'Teleport') - stops animation :(
+elif xxx_type[0] == 'o':
+	obj = oc.obj
+	obj.location = location
+
+
+o19.pp.move sim "(0, 0, 1.4)"
+if x != 0 or y != 0 or z != 0:
+	v4d = Quaternion(x, y, z, 0)  # w = 0
+	v4d = MyLocationCheats().q_mul(MyLocationCheats().q_mul(obj_orientation, v4d), MyLocationCheats().conjugate(obj_orientation))
+else:
+	v4d = Quaternion(x, y, z, 1)  # w = 1
+position = Vector3(obj_position.x + v4d.x, obj_position.y + v4d.y, obj_position.z + v4d.z)
+
+if xxx_type[0] == 's':
+	_transform = Transform(position, sim_orientation)
+	_routing_surface = SurfaceIdentifier(obj_zone_id, obj_level, obj_surface_id)
+	location = Location(_transform, _routing_surface)
+
+	sim = sc.sim
+	sim.location = location
+elif xxx_type[0] == 'o':
+	_transform = Transform(position, obj_orientation)
+	_routing_surface = SurfaceIdentifier(obj_zone_id, obj_level, obj_surface_id)
+	location = Location(_transform, _routing_surface)
+
+	obj = oc.obj
+	obj.location = location
+"""
+#####################
+
+    """
+    routing_surface = routing.SurfaceIdentifier(services.current_zone_id(), level, routing.SurfaceType.SURFACETYPE_POOL)
+    (target, context) = _build_terrain_interaction_target_and_context(sim, pos, routing_surface, PickType.PICK_POOL_SURFACE, objects.terrain.OceanPoint)
+    sim.push_super_affordance(CommandTuning.TERRAIN_SWIMHERE_AFFORDANCE, target, context)
+
+    routing_surface = routing.SurfaceIdentifier(services.current_zone_id(), level, routing.SurfaceType.SURFACETYPE_WORLD)
+    (target, context) = _build_terrain_interaction_target_and_context(sim, pos, routing_surface, PickType.PICK_TERRAIN, objects.terrain.TerrainPoint)
+    sim.push_super_affordance(CommandTuning.TERRAIN_GOHERE_AFFORDANCE, target, context)
+    """
+    # return sim.push_super_affordance(CommandTuning.TERRAIN_GOHERE_AFFORDANCE, target, context)

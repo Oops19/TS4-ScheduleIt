@@ -1,0 +1,15 @@
+{
+	'o19': {
+		'sample': ['trait_Insane', ],
+		'android': [
+            'trait_GenderOptions_Pregnancy_CanNotImpregnate',
+            'trait_GenderOptions_Pregnancy_CanNot_BeImpregnated',
+            'trait_Cauldron_Potion_Immortality',
+            'trait_Hidden_ChildCannotAgeUp_DoesNotPersist',
+        ],
+		'android_rm': [
+			'trait_GenderOptions_Pregnancy_CanBeImpregnated',
+			'trait_GenderOptions_Pregnancy_CanImpregnate',
+		],
+	},
+}

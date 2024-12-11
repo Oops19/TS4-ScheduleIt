@@ -1,0 +1,7 @@
+{
+	'o19': {
+		'bg': ['b#g', ],
+		'bellaGoth': ['bella#goth', ],
+		'android': ['Katrina#Caliente', ],
+	},
+}

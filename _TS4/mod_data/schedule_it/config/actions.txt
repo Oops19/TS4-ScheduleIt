@@ -1,0 +1,121 @@
+{
+	'o19': {
+		'android': {
+			'Sims': ['o19:android', ],  # sims.txt: 'Katrina#Caliente'
+			'SpawnSims': ['o19:android', ],  # sims.txt: 'Katrina#Caliente'
+			'AddTraits': ['o19:android', ],  # traits.txt: 'trait_Cauldron_Potion_Immortality',, ...
+			'RemoveTraits': ['o19:android_rm', ],  # traits.txt: 'trait_GenderOptions_Pregnancy_CanBeImpregnated',, ...
+			'AddBuffs': ['o19:android', ],  # buffs.txt: 'buff_Suppress_*', ...
+			'RemoveBuffs': ['o19:android_rm', ],  # buffs.txt: 'buff_Suppress_Visible_Motives_Exclude_Energy',
+			'Objects': ['o19:android', ],  # objects.txt: sitSofa
+            'SimLocation': {  # Relative location to Object if there is one, otherwise relative location
+                'Translation': [0, 0.0, 1.1],  # Order: x, y, z
+                # relative positive X: Usually right of the object (object is facing a wall)
+                # relative positive y: Usually above the object (object is standing normally on the floor)
+                # relative positive Z: Usually in front of object (object is facing a wall)
+                # Custom objects should behave like EA objects.
+                'RandomTranslation': [0.0, 0.0, 0.0],  # Random ± values.
+                'Orientation': [1.0, 0.0, 0.0, 0.0],  # Order: w, x, y, z
+                'RandomOrientation': [0.0, 0.0, 0.0, 0.0],  # Random ± values. The resulting Quaternion will be normalized.
+            },
+            'SimObjectInteractions': ['o19:android', ],  # interactions.txt: 'seating_Sit'
+		},
+
+		'doIt': {
+            'GlobalProbability': 100,  # 0% .. 100% to run the following code
+
+            'NumRuns': 2,  # Repeat this action 'n' times (n <= max number of sims, n <= max number of objects)
+                           # Each found sim and/or object can be used one time and will be picked randomly.
+                           # Setting this to 3 will run the object and/or sim instructions below 3 times.
+
+            # TODO 'OnLoad': False,  # True: Runs when loading the game.
+            # TODO 'OnLotLoad': False,  # True: Runs when loading a lot.
+            # TODO 'OnLotUnload': False,  # True: Runs when unloading / travelling / exiting to clean up LotTraits, Broadcasters, Objects, ...
+            # TODO 'ActiveHousehold': False,  # True: Lot must belong to active household. False: Ignore this test.
+            # TODO 'NPCHousehold': False,  # True: Lot mustn't belong to the active household (e.g. park). False: Ignore this test.
+
+            'Zones': ['o19:sample', ],  # If provided the loaded zone (lot) must be in 'Zones'
+            'Worlds': ['o19:sample', ],  # If provided ...
+            'Neighbourhoods': ['o19:sample', ],  # If provided ...
+            'Venues': ['o19:sample', ],  # If provided ...
+            'Regions': ['o19:sample', ], # If provided ...
+
+            'AddLotTraits': ['o19:sample', ],
+            'RemoveLotTraits': [],
+            'EnableBroadcasters': [],
+            'DisableBroadcasters': ['o19:sample', ],
+
+            # 'Objects' and/or 'Sims' parameter(s) must be specified.
+            # To skip 'Objects' or 'Sims' don't set the parameters.
+
+            # 'Sims': Find all matching sims (already spawned on lot). If nothing is found: Exit unless SpawnSims is set.
+            'Sims': ['o19:bg', ],  # -> 'b#g'
+            # TODO Allow better 'Sims' selection. Priority: VERY LOW, names should be sufficient.
+            # TODO  Options to include only sims with specific buffs and traits:
+            # TODO 'RequireBuffs': [...],
+            # TODO 'RequireBuffsMin': 1,  # Require at least N buff(s) from 'RequireBuffs'
+            # TODO 'RequireTraits': [...],
+            # TODO 'RequireTraitsMin': 1,  # Require at least N trait(s) from 'RequireTraits'
+
+            # 'SpawnSims': Find all matching sims, also hidden ones. If nothing is found: Exit.
+            'SpawnSims': ['o19:bellaGoth', ],  # -> 'bella#goth'
+
+            # Sims/SpawnSims can get additional buffs and traits
+            # 'AddBuffs': [...],
+            # 'AddTraits': [...],
+            # 'RemoveBuffs': [...],
+            # 'RemoveTraits': [...],
+
+            # For interactions towards other sims set:
+            # TODO 'TargetSims':
+            # TODO  'SpawnTargetSims':
+
+            'Objects': ['o19:sample', ],  # Find all matching objects (available on lot). If nothing is found: Exit unless SpawnObjects is set.
+            'ObjectLevels': [],  # Require 'Objects' to be on ground level [0, ]; underground [-3, -2, -1]; nth floor [1, 2, 3]; anywhere []
+            'DeSpawnObjects': True,  # Remove 1-NumRuns found 'Objects' from the lot.
+
+            'SpawnObjects': [],  # The list of objects to be spawned. 'NumRuns' should be '1' as there is only one spawn location.
+
+
+            # Everything below run in a loop with 'NumRuns' executions:
+            # Here we have one Sim and/or one Object.
+            'LocalProbability': 100,  # 0%..100% to run the following code for one picked sim/object pair.
+
+            'ObjectAbsLocation': {
+                'Translation': [250.0, 250.0, 250.0],  # Order: x, y, z
+                'RandomTranslation': [0.0, 0.0, 0.0],  # Random ± values.
+                'Orientation': [1.0, 0.0, 0.0, 0.0],  # Order: w, x, y, z
+                'RandomOrientation': [0.0, 0.0, 0.0, 0.0],  # Random ± values. The resulting Quaternion will be normalized.
+                'Levels': [0, ],
+                'SurfaceID': 0,
+                'Scale': 1.0,
+                'RandomScale': 0.0,  # Random +- values for 'Scale'. With Scale=1 and RandomScale=0.3 the object will be scaled in [0.7-1.3)
+            },
+            # 'ObjectAnimations': [...],  #  Optional animation for the object to play. Requires 'Objects' / SpawnObjects
+
+            # Sims section. The sim has been picked beforehand.
+            'SimLocation': {  # Relative location to Object if there is one, otherwise relative location
+                'Translation': [-1.5, 0.0, 1.8],  # Order: x, y, z
+                # relative positive X: Usually right of the object (object is facing a wall)
+                # relative positive y: Usually above the object (object is standing normally on the floor)
+                # relative positive Z: Usually in front of object (object is facing a wall)
+                # Custom objects should behave like EA objects.
+                'RandomTranslation': [0.0, 0.0, 0.0],  # Random ± values.
+                'Orientation': [1.0, 0.0, 0.0, 0.0],  # Order: w, x, y, z
+                'RandomOrientation': [0.0, 0.0, 0.0, 0.0],  # Random ± values. The resulting Quaternion will be normalized.
+                'Levels': [0, ],  # Needed for absolute location.
+                'SurfaceID': 0,  # Needed for absolute location.
+            },
+            'ResetSim': False,  # True: Reset the sim if on-lot
+            # TODO 'TeleportToLocation': False,  # True: A found sim will be teleported to the location.
+            # TODO 'WalkToLocation': False,  # True: A found sim will walk to the location.
+
+            'SimPose': [],  # Optional pose / clip for the sim to play.
+            'SimInteractions': [],  # Optional interaction for the sim to execute.
+            'SimObjectInteractions': [],  # Optional interaction for the sim to execute towards an object (Objects/SpawnObjects).
+            'SimSimInteractions': [],  # Optional interaction for the sim to execute towards a sim (TargetSim/SpawnTargetSim).
+
+
+			},
+	},
+}

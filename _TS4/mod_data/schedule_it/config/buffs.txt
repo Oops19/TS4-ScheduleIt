@@ -1,0 +1,16 @@
+{
+	'o19': {
+		'sample':  ['*_Flirty', ],
+		'android': [
+			'buff_Suppress_*', 
+            'Buff_NoGreetings',
+            'buff_NPC_Suppress_All_Motive_Decay',
+            'buff_Suntan_LockDecay',
+            'Buff_Trait_SpeedCleaner',
+            'Buff_Trait_SpeedReader',
+        ],
+		'android_rm': [
+            'buff_Suppress_Visible_Motives_Exclude_Energy',
+        ]
+	},
+}

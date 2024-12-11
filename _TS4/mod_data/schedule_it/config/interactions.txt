@@ -1,0 +1,5 @@
+{
+	'o19': {
+		'sample': ["object_SlippySlide_Slide", "object_SlippySlide_TrickSlide"],
+	},
+}

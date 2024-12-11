@@ -1,0 +1,6 @@
+{
+	'o19': {
+		'sample': ['Bar', 'Beach', 125223, 'Residential', ],
+		'not_existing': [1, ],
+	},
+}

@@ -1,0 +1,5 @@
+{
+	'o19': {
+		'sample':  ['broadcaster_Jealousy*', 'broadcaster_Inappropriate*', 'broadcaster_Outfit_Nude*', ],
+	},
+}

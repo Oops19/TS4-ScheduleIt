@@ -1,0 +1,5 @@
+{
+	'o19': {
+		'sample': ['Commodity_Trait_TheKnack_UpgradeTimer'], # 99841
+	},
+}
