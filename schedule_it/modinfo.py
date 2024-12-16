@@ -32,12 +32,12 @@ class ModInfo(CommonModInfo):
 
 
 '''
+TODO v1.0.0 config/regions.txt and config.venues.txt need to use the new names (if used)
+    
 v0.8.3
-    TBD: config/regions.txt and config.venues.txt need to use the new names !
     Code now compatible with TS4-Library 0.4.0 and replace Vanilla...(CommonEnum) imports.
 v0.8.2
     Change BodyPart to BodyType
-    Rename o19_schedule_it.package to schedule_it.package
 v0.8.1 
     Refactor
 v0.8.0
